@@ -21,3 +21,7 @@ for (const button of buttons) {
 function delay(URL) {
 	setTimeout( function() { window.location = URL }, 400 );
 }
+
+//window height
+const html = document.querySelector("html");
+html.style.height = `${window.innerHeight - 1}px`;
