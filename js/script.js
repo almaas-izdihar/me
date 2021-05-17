@@ -24,6 +24,6 @@ function delay(URL) {
 
 //window height
 const html = document.querySelector('html');
-html.style.height = `${window.innerHeight - 1}px`;
+html.style.backgroundColor = '#333333';
 const body = document.querySelector('body');
 body.style.height = `${window.innerHeight - 1}px`;
