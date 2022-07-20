@@ -1,29 +1,29 @@
-// ripple event
 function createRipple(event) {
-	const button = event.currentTarget;
-	const circle = document.createElement("span");
-	const diameter = Math.max(button.clientWidth, button.clientHeight);
-	circle.style.width = circle.style.height = `${diameter}px`;
-	circle.style.left = `${event.clientX - button.offsetLeft - diameter/2}px`;
-	circle.style.top = `${event.clientY - button.offsetTop - diameter/2}px`;
-	circle.classList.add("ripple");
-
-	const ripple = button.getElementsByClassName("ripple")[0];
-	if (ripple) ripple.remove();
-	button.appendChild(circle);
+    const button = event.currentTarget;
+  
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+  
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    circle.classList.add("ripple");
+  
+    const ripple = button.getElementsByClassName("ripple")[0];
+  
+    if (ripple) {
+      ripple.remove();
+    }
+  
+    button.appendChild(circle);
 }
-const buttons = document.querySelectorAll("a");
+  
+const buttons = document.querySelectorAll(".button");
 for (const button of buttons) {
-  button.addEventListener("click", createRipple);
+    button.addEventListener("click", createRipple);
 }
 
-// delay link click
-function delay(URL) {
-	setTimeout( function() { window.location = URL }, 400 );
+function delay (URL) {
+    setTimeout( function() { window.open(URL , '_blank') }, 400 );
 }
-
-//window height
-const html = document.querySelector('html');
-html.style.backgroundColor = '#333333';
-const body = document.querySelector('body');
-body.style.height = `${window.innerHeight - 1}px`;

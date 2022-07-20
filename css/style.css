@@ -1,130 +1,81 @@
-/*FONTS*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
-/*STYLE*/
-body,html {
-  width: 100vw;
-  font-family: 'Poppins', sans-serif;
-  color: #fff !important;
-  background-color: #333;
-  /*reset*/
-  margin: 0;
-  padding: 0;
+
+/* =============================================================================
+   HTML5 CSS Reset Minified - Eric Meyer
+   ========================================================================== */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+li{list-style:none}
+
+
+/* =============================================================================
+   My CSS
+   ========================================================================== */
+
+/* ---- base ---- */
+
+html,body{ 
+	width:100%;
+	height:100%;
+	background:rgb(254, 254, 254);
 }
-section {
-	height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+html{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-canvas{
-  display:block;
+
+body{
+  font:normal 75% Arial, Helvetica, sans-serif;
+  position: relative;
+  display: grid;
+  place-content: center;
+  row-gap: 12px;
 }
-#particles-js{
-  width: 100%;
-  height: 100%;
-  background-color: #333;
-  background-size: cover;
+
+a.button{
+  display: grid;
+  place-items:center;
+  position: relative;
+  width: 180px;
+  height: 56px;
+  background-color: rgba(53, 53, 53, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(3px);
+}
+
+a.button>.text{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  color: #000;
+}
+
+/* ripple */
+a.button {
+  overflow: hidden;
+}
+
+span.ripple {
   position: absolute;
-}
-
-.profile,h1,
-.main > a,
-.logo-bottom {
-	z-index: 2;
-}
-
-.profile {
-	width: 164px;
-	height: 164px;
-	border-radius: 50%;
-	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
-}
-h1 {
-	font-family: inherit;
-	font-weight: 600;
-	font-size: 28px;
-	line-height: 42px;
-	text-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
-	margin: 16px 0 42px 0;
-}
-a {
-	overflow: hidden;
-}
-
-.main > a {
-	width: 320px;
-	height: 64px;
-	background-color: rgba(255, 255, 255, 0.2);
-	box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1),
-							0px 0px 10px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(12px);
-	border-radius: 16px;
-	display: flex;
-	margin-bottom: 24px;
-	text-decoration: none;
-}
-.main > a:hover {
-	background-color: rgba(255, 255, 255, 0.27);
-}
-
-a .logo {
-	width: 64px;
-	height: 64px;
-	background: rgba(79, 101, 234, 1);
-	backdrop-filter: blur(8px);
-	border-radius: 16px;
-	display: flex;
-}
-a .logo img {
-	width: 28px;
-	height: 28px;
-	margin: auto;
-}
-a .text {
-	margin: auto;
-	transform: translateX(-8px);
-	font-family: inherit;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 24px;
-	color: #f5f5f5;
-}
-
-.logo-bottom {
-	display: flex;
-	margin-top: 18px;
-}
-.logo-bottom a {
-	display: flex;
-	margin: 0 8px;
-	width: 64px;
-	height: 64px;
-	background: rgba(255, 255, 255, 0.18);
-	box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(6px);
-	border-radius: 16px;
-	transition: .05s;
-}
-.logo-bottom a:hover {
-	transform: translateY(-6px);
-}
-.logo-bottom a img {
-	margin: auto;
-}
-
-a .ripple {
-	position: absolute;
   border-radius: 50%;
   transform: scale(0);
   animation: ripple 600ms linear;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: #4f66ea; */
 }
-.logo-bottom a .ripple {
-	animation: ripple 500ms linear;
-}
+
 @keyframes ripple {
   to {
     transform: scale(4);
@@ -132,53 +83,9 @@ a .ripple {
   }
 }
 
-.circle {
-	width: 42px;
-	height: 42px;
-	background: rgba(79, 101, 234, 1);
-	border-radius: 50%;
-	position: absolute;
-	transform: translate(148px, 2px);
-}
-.circle::after {
-	content: "";
-	width: 20px;
-	height: 20px;
-	background: rgba(79, 101, 234, 1);
-	border-radius: 50%;
-	position: absolute;
-	transform: translate(-30px, 32px);
+@media only screen and (min-width: 768px) {
+  a.button:hover {
+    background-color: rgba(53, 53, 53, 0.15);
+  }
 }
 
-@media only screen and (max-width: 575.98px) {
-	.profile {
-		width: 120px;
-		height: 120px;
-		box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
-	}
-	h1 {
-		font-size: 24px;
-		line-height: 36px;
-		margin: 12px 0 32px 0;
-	}
-	.main > a {
-		width: 274px;
-		height: 64px;
-		margin-bottom: 20px;
-	}
-	.main > a:hover {
-		background-color: rgba(255, 255, 255, 0.2);
-	}
-	.logo-bottom a:hover {
-		transform: translateY(0);
-	}
-	.circle {
-		transform: translate(128px, -20px);
-	}
-	.circle::after {
-		transform: translate(-30px, 32px);
-	}
-	a .ripple {
-	  background-color: rgba(255, 255, 255, 0.5);
-	}
-}
