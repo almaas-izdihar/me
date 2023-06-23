@@ -7,11 +7,11 @@
 html {
   font-family: 'IBM Plex mono', monospace;
   font-size: 16px;
-  cursor: url('/assets/Cursor-Circle.svg'), grab;
+  cursor: url('../assets/Cursor-Circle.svg'), grab;
 }
 
 html:active {
-  cursor: url('/assets/Cursor-Clicked.svg'), grab;
+  cursor: url('../assets/Cursor-Clicked.svg'), grab;
 }
 
 ::selection {
