@@ -1,70 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
 
-
-/* =============================================================================
-   HTML5 CSS Reset Minified - Eric Meyer
-   ========================================================================== */
-
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
-body{line-height:1}
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
-nav ul{list-style:none}
-blockquote,q{quotes:none}
-blockquote:before,blockquote:after,q:before,q:after{content:none}
-a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
-mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
-del{text-decoration:line-through}
-abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
-table{border-collapse:collapse;border-spacing:0}
-hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
-input,select{vertical-align:middle}
-li{list-style:none}
-
-
-/* =============================================================================
-   My CSS
-   ========================================================================== */
-
-/* ---- base ---- */
-
-html,body{ 
-	width:100%;
-	height:100%;
-	background:rgb(254, 254, 254);
+* {
+  box-sizing: border-box;
 }
 
-html{
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-body{
-  font:normal 75% Arial, Helvetica, sans-serif;
-  position: relative;
-  display: grid;
-  place-content: center;
-  row-gap: 12px;
-}
-
-a.button{
-  display: grid;
-  place-items:center;
-  position: relative;
-  width: 180px;
-  height: 56px;
-  background-color: rgba(53, 53, 53, 0.08);
-  border-radius: 16px;
-  backdrop-filter: blur(3px);
-}
-
-a.button>.text{
-  font-family: 'IBM Plex Mono', monospace;
+html {
+  font-family: 'IBM Plex mono', monospace;
   font-size: 16px;
-  color: #000;
+  cursor: url('/assets/Cursor-Circle.svg'), grab;
+}
+
+html:active {
+  cursor: url('/assets/Cursor-Clicked.svg'), grab;
+}
+
+::selection {
+  background: hsla(231, 79%, 80%, 1);
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+div.container {
+  max-width: 360px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  padding-bottom: 24px;
+  z-index: 2;
+}
+
+div.greetings-wrapper {
+  padding: 0 8px;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 120%;
+  font-weight: 500;
+  color: hsla(0, 0%, 20%, 1);
+}
+
+p {
+  font-size: 0.875rem;
+  line-height: 140%;
+  color: hsla(231, 79%, 10%, 0.6);
+  margin-top: 1rem;
+}
+
+a.link {
+  display: flex;
+  width: 100%;
+  height: 78px;
+  padding: 16px 8px;
+  border-top: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+  background-color: #ffffff;
+  margin-top: -1px;
+  justify-content: space-between;
+  align-items: end;
+  cursor: inherit;
+}
+
+a.link span.text-link {
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 500;
+  color: hsla(0, 0%, 20%, 1);
+}
+
+a.link img.icon {
+  width: 24px;
+  height: 24px;
+}
+
+span.blur-bg {
+  display: block;
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+  background: rgba(79, 101, 234, 0.90);
+  filter: blur(57px);
+  position: absolute;
+  top: -78px;
+  left: calc(50% + 64px);
+}
+
+div.flower {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  animation: spin 6s infinite linear;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 20px;
+}
+
+div.flower:hover {
+  animation: spin 50s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ripple */
-a.button {
+a.link {
+  position: relative;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a.link:focus {
+  outline: none !important;
 }
 
 span.ripple {
@@ -72,8 +140,7 @@ span.ripple {
   border-radius: 50%;
   transform: scale(0);
   animation: ripple 600ms linear;
-  background-color: rgba(0, 0, 0, 0.3);
-  /* background-color: #4f66ea; */
+  background-color: hsla(231, 79%, 75%, 1);
 }
 
 @keyframes ripple {
@@ -83,9 +150,8 @@ span.ripple {
   }
 }
 
-@media only screen and (min-width: 768px) {
-  a.button:hover {
-    background-color: rgba(53, 53, 53, 0.15);
+@media (hover: hover) {
+  a.link:hover {
+    background-color: hsla(231, 79%, 95%, 1);
   }
 }
-

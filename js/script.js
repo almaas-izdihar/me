@@ -4,10 +4,11 @@ function createRipple(event) {
     const circle = document.createElement("span");
     const diameter = Math.max(button.clientWidth, button.clientHeight);
     const radius = diameter / 2;
+    const centerOfCursor = 6;
   
     circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius + centerOfCursor}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius + centerOfCursor}px`;
     circle.classList.add("ripple");
   
     const ripple = button.getElementsByClassName("ripple")[0];
@@ -19,7 +20,7 @@ function createRipple(event) {
     button.appendChild(circle);
 }
   
-const buttons = document.querySelectorAll(".button");
+const buttons = document.querySelectorAll(".link");
 for (const button of buttons) {
     button.addEventListener("click", createRipple);
 }
