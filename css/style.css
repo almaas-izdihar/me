@@ -7,11 +7,11 @@
 html {
   font-family: 'IBM Plex mono', monospace;
   font-size: 16px;
-  cursor: url('https://hymos.github.io/me/assets/Cursor-Circle.svg'), auto;
+  cursor: url('https://almaas-ice.github.io/me/assets/Cursor-Circle.svg'), auto;
 }
 
 html:active {
-  cursor: url('https://hymos.github.io/me/assets/Cursor-Clicked.svg'), auto;
+  cursor: url('https://almaas-ice.github.io/me/assets/Cursor-Clicked.svg'), auto;
 }
 
 ::selection {
